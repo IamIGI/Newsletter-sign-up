@@ -2,6 +2,7 @@
 	import type { EventHandler } from 'svelte/elements';
 	import { onDestroy } from 'svelte';
 	import { goto } from '$app/navigation';
+	import newsletterStore from '$stores/newsletter';
 
 	const emailRegex =
 		/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -26,6 +27,9 @@
 			errorOnSend = true;
 			return;
 		}
+
+		newsletterStore.set(inputText);
+
 		goto('/success');
 		// success
 	};
