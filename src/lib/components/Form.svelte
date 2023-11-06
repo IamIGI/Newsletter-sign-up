@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { EventHandler } from 'svelte/elements';
+	import { onDestroy } from 'svelte';
 
 	const emailRegex =
 		/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -7,6 +8,7 @@
 	const label = 'Email address';
 	const placeholder = 'email@company.com';
 	const sendMessage = 'Subscribe to monthly newsletter';
+	let timeout: number | undefined;
 	let inputText = '';
 	let errorOnSend = false;
 
@@ -14,9 +16,9 @@
 
 	// work like watch in Vue, or useEffect in react
 	$: errorOnSend,
-		setTimeout(() => {
+		(timeout = setTimeout(() => {
 			errorOnSend = false;
-		}, 1000);
+		}, 1000));
 
 	const handleSubmit: EventHandler<SubmitEvent, HTMLFormElement> = (e) => {
 		if (!emailRegex.test(inputText)) {
@@ -25,6 +27,10 @@
 		}
 		// success
 	};
+
+	onDestroy(() => {
+		clearTimeout(timeout);
+	});
 </script>
 
 <form action="POST" on:submit|preventDefault={handleSubmit}>
