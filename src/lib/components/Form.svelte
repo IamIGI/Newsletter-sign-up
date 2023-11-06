@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { EventHandler } from 'svelte/elements';
 	import { onDestroy } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	const emailRegex =
 		/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -25,6 +26,7 @@
 			errorOnSend = true;
 			return;
 		}
+		goto('/success');
 		// success
 	};
 
@@ -76,21 +78,6 @@
 		padding: 15px 15px 15px 20px;
 		width: 100%;
 		border: 1px solid var(--color-grey);
-	}
-
-	button {
-		width: 100%;
-		border-radius: 8px;
-		background-color: var(--color-dark-slate-grey);
-		color: var(--color-white);
-		padding: 15px;
-		font-size: var(--font-p);
-		cursor: pointer;
-
-		&:disabled {
-			opacity: 0.6;
-			cursor: not-allowed;
-		}
 	}
 
 	.inputError {

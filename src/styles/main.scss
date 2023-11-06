@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-	--font-title: 60px;
+	--font-title: 55px;
 	--font-p: 17px;
 	--font-label: 12px;
 
@@ -27,4 +27,19 @@ body {
 	align-items: center;
 	text-align: center;
 	min-height: 100vh;
+}
+
+button {
+	width: 100%;
+	border-radius: 8px;
+	background-color: var(--color-dark-slate-grey);
+	color: var(--color-white);
+	padding: 15px;
+	font-size: var(--font-p);
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
 }
