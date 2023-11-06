@@ -18,15 +18,18 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background-color: var(--color-charcoal-grey); /* For browsers that do not support gradients */
-	background-image: linear-gradient(var(--bg-color-light), var(--bg-color-dark));
-	background-attachment: fixed; /*edit*/
+	background-color: var(--color-charcoal-grey); 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	min-height: 100vh;
+
+	@media screen and (max-width: 590px) {
+		background-color: var(--color-white);
+		justify-content: flex-start;
+	}
 }
 
 button {
@@ -41,5 +44,10 @@ button {
 	&:disabled {
 		opacity: 0.6;
 		cursor: not-allowed;
+	}
+
+	@media screen and (max-width: 670px) {
+		padding: 12px;
+		font-size: calc(var(--font-p) - 2px);
 	}
 }

@@ -28,10 +28,22 @@
 	h1 {
 		font-size: var(--font-title);
 		margin: 0;
+
+		@media screen and (max-width: 775px) {
+			font-size: calc(var(--font-title) - 10px);
+		}
+
+		@media screen and (max-width: 670px) {
+			font-size: calc(var(--font-title) - 20px);
+		}
 	}
 	p {
 		font-size: var(--font-p);
 		margin-bottom: 30px;
+
+		@media screen and (max-width: 670px) {
+			font-size: calc(var(--font-p) - 2px);
+		}
 	}
 
 	ul {
@@ -41,6 +53,10 @@
 			display: flex;
 			align-items: center;
 			gap: 15px;
+
+			@media screen and (max-width: 670px) {
+				font-size: calc(var(--font-p) - 2px);
+			}
 
 			img {
 				width: 17px;
