@@ -1,16 +1,19 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import icon_success from '$assets/images/icon-success.svg';
+	import newsletterStore from '$stores/newsletter';
+
+	// let email: string;
+	// get the value from store
+	// newsletterStore.subscribe((value) => (email = value));
 
 	const title = 'Thanks for subscribing!';
-
-	const dynamicMessage = (email: string): string => {
+	const dynamicMessage = (): string => {
 		return `
-	A confirmation email has been sent to <strong>${email}</strong>. 
+	A confirmation email has been sent to <strong>${$newsletterStore}</strong>. 
 Please open it and click the button inside to confirm your subscription.
 	`;
 	};
-
 	const buttonMessage = 'Dismiss message';
 
 	const goBack = () => {
@@ -21,7 +24,7 @@ Please open it and click the button inside to confirm your subscription.
 <div class="container">
 	<img src={icon_success} alt="icon " />
 	<h1>{title}</h1>
-	<p>{@html dynamicMessage('elo@gmail.com')}</p>
+	<p>{@html dynamicMessage()}</p>
 	<button on:click={goBack}>
 		{buttonMessage}
 	</button>
