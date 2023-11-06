@@ -34,8 +34,14 @@ Please open it and click the button inside to confirm your subscription.
 	img {
 		height: 45px;
 		width: 45px;
+
+		@media screen and (max-width: 590px) {
+			height: 60px;
+			width: 60px;
+		}
 	}
 	.container {
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -52,6 +58,12 @@ Please open it and click the button inside to confirm your subscription.
 
 		p {
 			line-height: 20px;
+		}
+
+		@media screen and (max-width: 590px) {
+			width: 360px;
+
+			padding-top: 35%;
 		}
 	}
 </style>

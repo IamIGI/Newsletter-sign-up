@@ -4,6 +4,3 @@
 
 <Left />
 <Right />
-
-<style lang="scss">
-</style>

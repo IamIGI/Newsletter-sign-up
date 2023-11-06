@@ -16,5 +16,9 @@
 		gap: 60px;
 		flex: 1;
 		padding: 10px 20px;
+
+		@media screen and (max-width: 590px) {
+			justify-content: flex-start;
+		}
 	}
 </style>

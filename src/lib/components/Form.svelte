@@ -82,6 +82,10 @@
 		padding: 15px 15px 15px 20px;
 		width: 100%;
 		border: 1px solid var(--color-grey);
+
+		@media screen and (max-width: 670px) {
+			padding: 12px 12px 12px 17px;
+		}
 	}
 
 	.inputError {

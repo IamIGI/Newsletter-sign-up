@@ -20,5 +20,15 @@
 		gap: 10px;
 		width: fit-content;
 		padding: 15px;
+		margin: 10px;
+
+		@media screen and (max-width: 590px) {
+			flex-direction: column-reverse;
+			margin: 0px;
+			box-shadow: none;
+			width: 100%;
+			padding: 0px;
+			height: 100vh;
+		}
 	}
 </style>
